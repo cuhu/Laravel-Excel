@@ -18,6 +18,8 @@ trait Importable
      */
     protected $output;
 
+    public $excelEndColumn = null;
+
     /**
      * @param string|UploadedFile|null $filePath
      * @param string|null              $disk
@@ -145,5 +147,12 @@ trait Importable
     private function getImporter(): Importer
     {
         return app(Importer::class);
+    }
+
+    public function withExcelEndColumn(string $endColumn)
+    {
+        $this->excelEndColumn = $endColumn;
+
+        return $this;
     }
 }

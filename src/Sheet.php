@@ -308,7 +308,7 @@ class Sheet
 
         $rows = [];
         foreach ($this->worksheet->getRowIterator($startRow, $endRow) as $row) {
-            $row = (new Row($row, $headingRow))->toArray($nullValue, $calculateFormulas, $formatData);
+            $row = (new Row($row, $headingRow))->toArray($nullValue, $calculateFormulas, $formatData, $import->excelEndColumn);
 
             if ($import instanceof WithMapping) {
                 $row = $import->map($row);
